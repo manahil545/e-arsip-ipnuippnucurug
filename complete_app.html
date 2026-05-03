@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>E-Arsip PR IPNU IPPNU Desa Curug</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --emerald-900: #064e3b;
+            --emerald-700: #047857;
+            --emerald-600: #059669;
+            --emerald-500: #10b981;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f0fdf4;
+            color: #0f172a;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .drawer {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .drawer-hide { transform: translateY(100%); }
+        .drawer-show { transform: translateY(0); }
+
+        .nav-active { color: var(--emerald-600); }
+        .nav-active svg { transform: translateY(-3px); color: var(--emerald-600); }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-slide-up { animation: slideUp 0.4s ease-out forwards; }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--emerald-500);
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #d1fae5; border-radius: 10px; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- COMPONENT: LOGIN PAGE -->
+    <section id="login-page" class="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.03] flex items-center justify-center pointer-events-none">
+            <img src="https://upload.wikimedia.org/wikipedia/id/8/87/Logo_IPNU.png" class="w-96 h-96 rotate-12" alt="Watermark">
+        </div>
+        
+        <div class="w-full max-w-sm z-10 animate-slide-up">
+            <div class="flex flex-col items-center mb-10">
+                <div class="flex -space-x-4 mb-4">
+                    <div class="w-20 h-20 bg-white rounded-3xl p-3 shadow-2xl border border-emerald-100 flex items-center justify-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/id/8/87/Logo_IPNU.png" class="w-full h-full object-contain" alt="IPNU">
+                    </div>
+                    <div class="w-20 h-20 bg-white rounded-3xl p-3 shadow-2xl border border-emerald-100 flex items-center justify-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/id/5/53/Logo_IPPNU.png" class="w-full h-full object-contain" alt="IPPNU">
+                    </div>
+                </div>
+                <h1 class="text-3xl font-black text-emerald-900 uppercase text-center tracking-tighter leading-tight">
+                    E-Arsip <br> 
+                    <span class="text-emerald-600 text-sm tracking-widest font-bold block mt-1">PR IPNU IPPNU DESA CURUG</span>
+                </h1>
+            </div>
+
+            <div class="glass rounded-[48px] p-8 shadow-2xl border border-white">
+                <form id="form-login" class="space-y-5">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-black text-emerald-800/60 uppercase tracking-widest ml-1">Username</label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </span>
+                            <input type="text" placeholder="Username Pengurus" class="w-full bg-emerald-50/50 border-2 border-emerald-100 rounded-2xl py-4 pl-12 pr-4 outline-none transition-all text-sm font-semibold" required>
+                        </div>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-black text-emerald-800/60 uppercase tracking-widest ml-1">Password</label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            </span>
+                            <input type="password" placeholder="••••••••" class="w-full bg-emerald-50/50 border-2 border-emerald-100 rounded-2xl py-4 pl-12 pr-4 outline-none transition-all text-sm font-semibold" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-emerald-800 to-emerald-600 text-white py-4 rounded-2xl font-black uppercase tracking-widest shadow-xl shadow-emerald-200 border-b-4 border-emerald-900/20 active:scale-95 transition-all">
+                        Masuk Sistem
+                    </button>
+                </form>
+            </div>
+            <p class="mt-8 text-center text-[10px] text-emerald-800/30 font-bold uppercase tracking-widest leading-relaxed">
+                Dikembangkan untuk PR IPNU IPPNU <br> Desa Curug &copy; 2026
+            </p>
+        </div>
+    </section>
+
+    <!-- COMPONENT: MAIN APP SHELL -->
+    <div id="main-app" class="hidden min-h-screen flex flex-col pb-24 relative">
+        <!-- COMPONENT: HEADER -->
+        <header class="bg-gradient-to-r from-emerald-900 via-emerald-700 to-emerald-600 text-white p-5 shadow-lg sticky top-0 z-50 flex justify-between items-center border-b border-white/10">
+            <div class="flex items-center gap-3">
+                <div class="flex -space-x-2">
+                    <div class="w-10 h-10 bg-white rounded-full p-1 border-2 border-emerald-500 shadow-sm"><img src="https://upload.wikimedia.org/wikipedia/id/8/87/Logo_IPNU.png" class="w-full h-full object-contain"></div>
+                    <div class="w-10 h-10 bg-white rounded-full p-1 border-2 border-emerald-500 shadow-sm"><img src="https://upload.wikimedia.org/wikipedia/id/5/53/Logo_IPPNU.png" class="w-full h-full object-contain"></div>
+                </div>
+                <div>
+                    <h1 class="font-black text-lg uppercase tracking-tighter leading-none">E-Arsip</h1>
+                    <p class="text-[9px] text-emerald-100/80 font-bold tracking-widest mt-0.5 uppercase">PR IPNU IPPNU DESA CURUG</p>
+                </div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-2 rounded-xl border border-white/20 active:scale-90 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
+        </header>
+
+        <!-- COMPONENT: CONTENT VIEWS -->
+        <main class="flex-1 p-5 overflow-x-hidden">
+            
+            <!-- VIEW: DASHBOARD -->
+            <div id="view-dashboard" class="space-y-6 animate-slide-up">
+                <div class="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-emerald-900 to-emerald-700 p-8 text-white shadow-2xl border border-white/10">
+                    <div class="absolute -bottom-6 -right-6 w-40 h-40 opacity-10 rotate-12 pointer-events-none">
+                        <img src="https://upload.wikimedia.org/wikipedia/id/8/87/Logo_IPNU.png" class="w-full h-full object-contain">
+                    </div>
+                    <div class="relative z-10">
+                        <h2 class="text-2xl font-black tracking-tight mb-2">Selamat Datang, Rekan!</h2>
+                        <p class="text-emerald-50/80 text-sm font-medium leading-relaxed max-w-[85%]">Sistem pengarsipan digital untuk efisiensi dan profesionalitas organisasi.</p>
+                        <div class="mt-8 inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-black uppercase tracking-widest">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            Tahun Khidmat 2024-2026
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="bg-white p-5 rounded-[28px] text-center shadow-sm border border-emerald-50 flex flex-col items-center">
+                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                        </div>
+                        <span class="text-[9px] text-emerald-800/50 font-black uppercase block mb-1">Masuk</span>
+                        <span class="text-2xl font-black text-emerald-950">124</span>
+                    </div>
+                    <div class="bg-white p-5 rounded-[28px] text-center shadow-sm border border-emerald-50 flex flex-col items-center">
+                        <div class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                        </div>
+                        <span class="text-[9px] text-emerald-800/50 font-black uppercase block mb-1">Keluar</span>
+                        <span class="text-2xl font-black text-emerald-950">86</span>
+                    </div>
+                    <div class="bg-white p-5 rounded-[28px] text-center shadow-sm border border-emerald-50 flex flex-col items-center">
+                        <div class="w-10 h-10 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+                        </div>
+                        <span class="text-[9px] text-emerald-800/50 font-black uppercase block mb-1">Aset</span>
+                        <span class="text-2xl font-black text-emerald-950">42</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: LIST ARSIP -->
+            <div id="view-list" class="hidden space-y-5 animate-slide-up">
+                <!-- COMPONENT: CATEGORY TABS -->
+                <div id="category-selector" class="flex bg-emerald-100/50 backdrop-blur-md p-1.5 rounded-2xl gap-1 border border-emerald-200/50 shadow-inner">
+                    <button onclick="changeCategory('ipnu')" id="tab-ipnu" class="flex-1 py-3 text-[10px] font-black rounded-xl transition-all uppercase tracking-widest bg-gradient-to-r from-emerald-800 to-emerald-600 text-white shadow-md">IPNU</button>
+                    <button onclick="changeCategory('ippnu')" id="tab-ippnu" class="flex-1 py-3 text-[10px] font-black rounded-xl transition-all uppercase tracking-widest text-emerald-700 hover:bg-emerald-100">IPPNU</button>
+                    <button onclick="changeCategory('bersama')" id="tab-bersama" class="flex-1 py-3 text-[10px] font-black rounded-xl transition-all uppercase tracking-widest text-emerald-700 hover:bg-emerald-100">Bersama</button>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="relative group">
+                    <div class="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-400 group-focus-within:text-emerald-600 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </div>
+                    <input type="text" placeholder="Cari nomor atau perihal..." class="w-full pl-12 pr-4 py-4 bg-white border-2 border-emerald-50 rounded-[24px] shadow-sm outline-none focus:border-emerald-500 transition-all text-sm font-medium">
+                </div>
+
+                <!-- Archive Items Container -->
+                <div id="archive-container" class="space-y-4">
+                    <!-- Dynamic List Items will be injected here -->
+                </div>
+            </div>
+        </main>
+
+        <!-- COMPONENT: FLOATING ACTION BUTTON -->
+        <button id="btn-fab" onclick="openDrawer()" class="hidden fixed bottom-28 right-6 w-16 h-16 bg-gradient-to-tr from-emerald-900 to-emerald-500 text-white rounded-2xl flex items-center justify-center shadow-2xl z-40 active:scale-90 transition-all border-2 border-white/20 rotate-45 hover:rotate-90">
+            <div class="-rotate-45">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+            </div>
+        </button>
+
+        <!-- COMPONENT: BOTTOM NAVIGATION -->
+        <nav class="fixed bottom-0 left-0 right-0 glass border-t border-emerald-100 px-8 py-4 flex justify-between items-center z-50 rounded-t-[32px]">
+            <button onclick="navigateTo('dashboard')" id="nav-dashboard" class="flex flex-col items-center gap-1.5 nav-active">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                <span class="text-[9px] font-black uppercase tracking-tighter">Beranda</span>
+            </button>
+            <button onclick="navigateTo('surat-masuk')" id="nav-surat-masuk" class="flex flex-col items-center gap-1.5 text-slate-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                <span class="text-[9px] font-black uppercase tracking-tighter text-center">Surat Masuk</span>
+            </button>
+            <button onclick="navigateTo('surat-keluar')" id="nav-surat-keluar" class="flex flex-col items-center gap-1.5 text-slate-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                <span class="text-[9px] font-black uppercase tracking-tighter text-center">Surat Keluar</span>
+            </button>
+            <button onclick="navigateTo('inventaris')" id="nav-inventaris" class="flex flex-col items-center gap-1.5 text-slate-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+                <span class="text-[9px] font-black uppercase tracking-tighter">Inventaris</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- COMPONENT: FORM DRAWER (OVERLAY) -->
+    <div id="overlay" onclick="closeDrawer()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] hidden opacity-0 transition-opacity duration-300"></div>
+    
+    <div id="drawer" class="fixed bottom-0 left-0 right-0 z-[70] glass rounded-t-[48px] shadow-2xl drawer drawer-hide overflow-y-auto max-h-[92vh] custom-scrollbar">
+        <div class="sticky top-0 bg-white/80 backdrop-blur-md px-8 py-6 flex justify-between items-center border-b border-emerald-50">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <h2 id="drawer-header" class="text-xl font-black text-emerald-900 uppercase tracking-tighter">Tambah Arsip</h2>
+            </div>
+            <button onclick="closeDrawer()" class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center hover:bg-emerald-100 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+
+        <form id="main-form" class="p-8 space-y-6 pb-12" onsubmit="handleFormSubmit(event)">
+            <!-- Category & Index -->
+            <div class="space-y-4">
+                <div id="category-field" class="space-y-1.5">
+                    <label class="text-[10px] font-black text-emerald-800/60 uppercase tracking-widest ml-1">Organisasi / Kategori</label>
+                    <select id="form-cat" onchange="toggleIndexView()" class="w-full bg-emerald-50/50 border-2 border-emerald-100 rounded-2xl py-4 px-4 outline-none text-sm font-bold transition-all appearance-none">
+                        <option value="ipnu">Surat IPNU</option>
+                        <option value="ippnu">Surat IPPNU</option>
+                        <option value="bersama">Surat Bersama (IPNU IPPNU)</option>
+                    </select>
+                </div>
+
+                <div id="index-field" class="space-y-1.5">
+                    <label class="text-[10px] font-black text-emerald-800/60 uppercase tracking-widest ml-1">Indeks Surat</label>
+                    <div class="grid grid-cols-3 gap-3">
+                        <label class="relative cursor-pointer">
+                            <input type="radio" name="index" value="A" class="peer hidden" checked>
+                            <div class="py-3.5 text-center rounded-2xl border-2 border-emerald-50 text-slate-400 font-black text-sm peer-checked:border-emerald-600 peer-checked:bg-emerald-50 peer-checked:text-emerald-700 transition-all uppercase">Indeks A</div>
+                        </label>
+                        <label class="relative cursor-pointer">
+                            <input type="radio" name="index" value="B" class="peer hidden">
+                            <div class="py-3.5 text-center rounded-2xl border-2 border-emerald-50 text-slate-400 font-black text-sm peer-checked:border-emerald-600 peer-checked:bg-emerald-50 peer-checked:text-emerald-700 transition-all uppercase">Indeks B</div>
+                        </label>
+                        <label class="relative cursor-pointer">
+                            <input type="radio" name="index" value="C" class="peer hidden">
+                            <div class="py-3.5 text-center rounded-2xl border-2 border-emerald-50 text-slate-400 font-black text-sm peer-checked:border-emerald-600 peer-checked:bg-emerald-50 peer-checked:text-emerald-700 transition-all uppercase">Indeks C</div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-1.5">
+                <label class="text-[10px] font-black text-emerald-800/60 uppercase tracking-widest ml-1" id="label-perihal">Perihal Surat</label>
+                <input type="text" placeholder="Masukkan judul arsip" class="w-full bg-emerald-50/50 border-2 border-emerald-100 rounded-2xl py-4 px-4 outline-none text-sm font-semibold">
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-black text-emerald-800/60 uppercase tracking-widest ml-1">Tanggal</label>
+                    <input type="date" class="w-full bg-emerald-50/50 border-2 border-emerald-100 rounded-2xl py-4 px-4 outline-none text-sm font-semibold">
+                </div>
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-black text-emerald-800/60 uppercase tracking-widest ml-1" id="label-kode">No. Surat</label>
+                    <input type="text" placeholder="001/A/..." class="w-full bg-emerald-50/50 border-2 border-emerald-100 rounded-2xl py-4 px-4 outline-none text-sm font-semibold">
+                </div>
+            </div>
+
+            <div class="space-y-1.5">
+                <label class="text-[10px] font-black text-emerald-800/60 uppercase tracking-widest ml-1" id="label-pengirim">Pengirim / Dari</label>
+                <input type="text" placeholder="Nama organisasi/instansi" class="w-full bg-emerald-50/50 border-2 border-emerald-100 rounded-2xl py-4 px-4 outline-none text-sm font-semibold">
+            </div>
+
+            <div class="space-y-1.5">
+                <label class="text-[10px] font-black text-emerald-800/60 uppercase tracking-widest ml-1">Keterangan Tambahan</label>
+                <textarea placeholder="Contoh: Barangkali menghadiri, disposisi ketua, lokasi simpan, dll." class="w-full bg-emerald-50/50 border-2 border-emerald-100 rounded-2xl py-4 px-4 outline-none text-sm font-medium min-h-[120px] resize-none"></textarea>
+            </div>
+
+            <div class="space-y-2">
+                <label class="text-[10px] font-black text-emerald-800/60 uppercase tracking-widest ml-1">Lampiran Foto/File</label>
+                <div class="flex gap-4">
+                    <label class="flex-1 h-32 border-2 border-dashed border-emerald-200 rounded-3xl flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-emerald-50 transition-colors bg-white/50">
+                        <input type="file" class="hidden" accept="image/*">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-emerald-400"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                        <span class="text-[10px] font-bold text-emerald-800/40 uppercase">Kamera</span>
+                    </label>
+                    <label class="flex-1 h-32 border-2 border-dashed border-emerald-200 rounded-3xl flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-emerald-50 transition-colors bg-white/50">
+                        <input type="file" class="hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-emerald-400"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                        <span class="text-[10px] font-bold text-emerald-800/40 uppercase">Upload File</span>
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="w-full bg-gradient-to-r from-emerald-800 to-emerald-600 text-white py-5 rounded-[24px] font-black uppercase tracking-widest shadow-2xl shadow-emerald-200 border-b-4 border-emerald-900/20 active:scale-95 transition-all">
+                Simpan Ke Arsip
+            </button>
+        </form>
+    </div>
+
+    <!-- LOGIC SCRIPTS -->
+    <script>
+        // STATE MANAGEMENT
+        let currentView = 'dashboard';
+        let currentListCategory = 'ipnu';
+
+        // COMPONENT: LOGIN HANDLER
+        document.getElementById('form-login').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            btn.innerHTML = '<span class="flex items-center gap-2"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Memverifikasi...</span>';
+            
+            setTimeout(() => {
+                document.getElementById('login-page').classList.add('hidden');
+                document.getElementById('main-app').classList.remove('hidden');
+                navigateTo('dashboard');
+            }, 1200);
+        });
+
+        // COMPONENT: NAVIGATION ROUTER
+        function navigateTo(view) {
+            currentView = view;
+            
+            // Toggle Views
+            const dashboard = document.getElementById('view-dashboard');
+            const list = document.getElementById('view-list');
+            const fab = document.getElementById('btn-fab');
+
+            if (view === 'dashboard') {
+                dashboard.classList.remove('hidden');
+                list.classList.add('hidden');
+                fab.classList.add('hidden');
+            } else {
+                dashboard.classList.add('hidden');
+                list.classList.remove('hidden');
+                fab.classList.remove('hidden');
+                renderArchiveItems();
+            }
+
+            // Update Nav UI
+            ['dashboard', 'surat-masuk', 'surat-keluar', 'inventaris'].forEach(v => {
+                const btn = document.getElementById('nav-' + v);
+                if (v === view) {
+                    btn.classList.add('nav-active');
+                    btn.classList.remove('text-slate-400');
+                } else {
+                    btn.classList.remove('nav-active');
+                    btn.classList.add('text-slate-400');
+                }
+            });
+        }
+
+        // COMPONENT: LIST CATEGORY HANDLER
+        function changeCategory(cat) {
+            currentListCategory = cat;
+            ['ipnu', 'ippnu', 'bersama'].forEach(c => {
+                const btn = document.getElementById('tab-' + c);
+                if (c === cat) {
+                    btn.classList.add('bg-gradient-to-r', 'from-emerald-800', 'to-emerald-600', 'text-white', 'shadow-md');
+                    btn.classList.remove('text-emerald-700', 'hover:bg-emerald-100');
+                } else {
+                    btn.classList.remove('bg-gradient-to-r', 'from-emerald-800', 'to-emerald-600', 'text-white', 'shadow-md');
+                    btn.classList.add('text-emerald-700', 'hover:bg-emerald-100');
+                }
+            });
+            renderArchiveItems();
+        }
+
+        // COMPONENT: LIST RENDERER
+        function renderArchiveItems() {
+            const container = document.getElementById('archive-container');
+            container.innerHTML = '';
+            
+            const data = [
+                { title: 'Undangan Konancab', code: '042/PR/A/7354/X/2023', date: '12 Okt 2023', source: 'PAC IPNU IPPNU', idx: 'A', ket: 'Menghadiri pelantikan' },
+                { title: 'Permohonan Delegasi', code: '043/PR/B/7354/X/2023', date: '15 Okt 2023', source: 'PR IPNU IPPNU Curug', idx: 'B', ket: 'Sudah di disposisi ketua' },
+                { title: 'Surat Keputusan Pengesahan', code: '044/PR/A/7354/X/2023', date: '20 Okt 2023', source: 'PC IPNU IPPNU', idx: 'A', ket: 'Arsip fisik di lemari' }
+            ];
+
+            // Change icon based on view
+            let colorClass = currentView === 'surat-masuk' ? 'bg-blue-50 text-blue-600' : (currentView === 'surat-keluar' ? 'bg-emerald-50 text-emerald-600' : 'bg-amber-50 text-amber-600');
+            let icon = currentView === 'inventaris' ? '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>' : '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>';
+
+            data.forEach((item, i) => {
+                const card = document.createElement('div');
+                card.className = 'bg-white/80 backdrop-blur-sm p-5 rounded-[28px] shadow-sm border border-emerald-50 flex gap-4 relative overflow-hidden active:scale-[0.98] transition-transform animate-slide-up';
+                card.style.animationDelay = (i * 0.1) + 's';
+                
+                card.innerHTML = `
+                    <div class="absolute -bottom-2 -right-2 w-16 h-16 opacity-[0.03] pointer-events-none rotate-12">
+                        <img src="https://upload.wikimedia.org/wikipedia/id/8/87/Logo_IPNU.png">
+                    </div>
+                    <div class="w-12 h-12 rounded-[18px] flex items-center justify-center shrink-0 shadow-inner ${colorClass}">
+                        ${icon}
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex justify-between items-start gap-2">
+                            <h4 class="font-bold text-slate-800 text-sm truncate leading-tight">${item.title}</h4>
+                            <span class="shrink-0 bg-emerald-100 text-emerald-800 text-[9px] px-1.5 py-0.5 rounded-lg font-black border border-emerald-200">IND-${item.idx}</span>
+                        </div>
+                        <p class="text-[10px] text-gray-400 font-mono mt-1 truncate tracking-tight uppercase">${item.code}</p>
+                        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mt-3 text-[10px] text-gray-500 font-bold uppercase tracking-tighter">
+                            <span class="flex items-center gap-1"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg> ${item.date}</span>
+                            <span class="flex items-center gap-1"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> ${item.source}</span>
+                        </div>
+                        <div class="mt-3 text-[10px] text-blue-600 bg-blue-50/50 px-2.5 py-1 rounded-xl border border-blue-100/50 inline-block font-medium italic">
+                            Ket: ${item.ket}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // COMPONENT: DRAWER HANDLER
+        function openDrawer() {
+            document.getElementById('overlay').classList.remove('hidden');
+            setTimeout(() => document.getElementById('overlay').classList.replace('opacity-0', 'opacity-100'), 10);
+            document.getElementById('drawer').classList.replace('drawer-hide', 'drawer-show');
+            
+            // Context aware drawer header
+            const header = document.getElementById('drawer-header');
+            if (currentView === 'surat-masuk') header.innerText = 'Input Surat Masuk';
+            else if (currentView === 'surat-keluar') header.innerText = 'Input Surat Keluar';
+            else if (currentView === 'inventaris') {
+                header.innerText = 'Input Inventaris';
+                updateFormForInventaris();
+            }
+        }
+
+        function closeDrawer() {
+            document.getElementById('overlay').classList.replace('opacity-100', 'opacity-0');
+            setTimeout(() => document.getElementById('overlay').classList.add('hidden'), 300);
+            document.getElementById('drawer').classList.replace('drawer-show', 'drawer-hide');
+            setTimeout(() => resetFormLabels(), 400);
+        }
+
+        function toggleIndexView() {
+            const cat = document.getElementById('form-cat').value;
+            const indexField = document.getElementById('index-field');
+            if (cat === 'bersama') indexField.classList.add('hidden');
+            else indexField.classList.remove('hidden');
+        }
+
+        function updateFormForInventaris() {
+            document.getElementById('category-field').classList.add('hidden');
+            document.getElementById('index-field').classList.add('hidden');
+            document.getElementById('label-perihal').innerText = 'Nama Barang / Aset';
+            document.getElementById('label-kode').innerText = 'Jumlah Barang';
+            document.getElementById('label-pengirim').innerText = 'Lokasi Penyimpanan';
+        }
+
+        function resetFormLabels() {
+            document.getElementById('category-field').classList.remove('hidden');
+            document.getElementById('index-field').classList.remove('hidden');
+            document.getElementById('label-perihal').innerText = 'Perihal Surat';
+            document.getElementById('label-kode').innerText = 'No. Surat';
+            document.getElementById('label-pengirim').innerText = 'Pengirim / Dari';
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('Arsip berhasil disimpan ke sistem lokal!');
+            closeDrawer();
+        }
+    </script>
+</body>
+</html>
